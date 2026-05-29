@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LittleCloud — Toko Baju Anak</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <div class="app">
+
+    <header class="header">
+      <div>
+        <div class="logo">☁️ LittleCloud</div>
+        <p class="tagline">Koleksi baju anak terlengkap & terpercaya</p>
+      </div>
+      <button class="btn-dark" id="darkToggle" title="Toggle dark mode">🌙</button>
+    </header>
+
+    <div class="stats-bar">
+      <div class="stat-card">
+        <span class="stat-num" id="statTotal">0</span>
+        <span class="stat-label">Total Produk</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num c-pink" id="statStok">0</span>
+        <span class="stat-label">Total Stok</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num c-green" id="statMurah">-</span>
+        <span class="stat-label">Harga Termurah</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num c-purple" id="statMahal">-</span>
+        <span class="stat-label">Harga Termahal</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num c-orange" id="statKat">0</span>
+        <span class="stat-label">Kategori</span>
+      </div>
+    </div>
+
+    <div class="main">
+      <aside class="sidebar">
+        <h2 class="form-title" id="formTitle">+ Tambah Produk</h2>
+        <form id="productForm">
+          <input type="hidden" id="editId"/>
+
+          <label>Nama Produk *</label>
+          <input type="text" id="iName" placeholder="cth: Kaos Polos Anak" required/>
+
+          <label>Harga (Rp) *</label>
+          <input type="number" id="iPrice" placeholder="cth: 45000" min="0" required/>
+
+          <label>Stok *</label>
+          <input type="number" id="iStock" placeholder="cth: 50" min="0" required/>
+
+          <label>Kategori *</label>
+          <select id="iCat">
+            <option value="Atasan">👕 Atasan</option>
+            <option value="Bawahan">👖 Bawahan</option>
+            <option value="Dress">👗 Dress</option>
+            <option value="Jaket">🧥 Jaket</option>
+            <option value="Tidur">🌙 Tidur</option>
+          </select>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary" id="submitBtn">Simpan</button>
+            <button type="button" class="btn-ghost" id="cancelBtn" style="display:none">Batal</button>
+          </div>
+        </form>
+
+        <div class="api-box">
+          <p class="api-title">📡 API Endpoints</p>
+          <div class="api-row"><span class="method get">GET</span><code>/api/products</code></div>
+          <div class="api-row"><span class="method post">POST</span><code>/api/products</code></div>
+          <div class="api-row"><span class="method put">PUT</span><code>/api/products/:id</code></div>
+          <div class="api-row"><span class="method del">DEL</span><code>/api/products/:id</code></div>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="filter-bar">
+          <input type="text" id="searchInput" placeholder="🔍 Cari produk..."/>
+          <select id="filterCat">
+            <option value="">Semua Kategori</option>
+            <option value="Atasan">Atasan</option>
+            <option value="Bawahan">Bawahan</option>
+            <option value="Dress">Dress</option>
+            <option value="Jaket">Jaket</option>
+            <option value="Tidur">Tidur</option>
+          </select>
+        </div>
+
+        <div id="productGrid" class="product-grid"></div>
+      </section>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <div id="modal" class="modal-overlay" style="display:none">
+    <div class="modal">
+      <h3 id="modalTitle"></h3>
+      <div id="modalContent"></div>
+      <button class="btn-ghost" onclick="closeModal()">Tutup</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
