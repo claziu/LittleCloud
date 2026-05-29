@@ -3,15 +3,8 @@
 REST API sederhana menggunakan **Express.js + MySQL** untuk manajemen produk toko baju anak, dilengkapi tampilan web yang interaktif.
 
 > 📚 Tugas Mandiri — Pengembangan Back-end | Universitas Teknologi Yogyakarta
-
-## ✨ Fitur
-
-- ✅ REST API CRUD lengkap (GET, POST, PUT, DELETE)
-- 📊 Dashboard statistik produk real-time
-- 🔍 Search & filter berdasarkan kategori
-- 🎨 Ilustrasi baju SVG per kategori
-- 🌙 Dark mode
-- 📡 Endpoint sesuai spesifikasi tugas
+> NPM : 523411252
+> NAMA : Zikriana Putri M
 
 ## 🌐 API Endpoints
 
@@ -24,34 +17,6 @@ REST API sederhana menggunakan **Express.js + MySQL** untuk manajemen produk tok
 | DELETE | `/api/products/:id` | Menghapus produk berdasarkan ID |
 | GET | `/api/products/stats` | Statistik produk |
 
-### Query Parameters (GET /api/products)
-- `?search=kaos` — cari berdasarkan nama produk
-- `?category=Atasan` — filter berdasarkan kategori
-
-### Contoh Request Body (POST/PUT)
-```json
-{
-  "name": "Kaos Polos Anak",
-  "price": 45000,
-  "stock": 50,
-  "category": "Atasan"
-}
-```
-
-### Contoh Response
-```json
-{
-  "success": true,
-  "message": "Produk berhasil ditambahkan",
-  "data": {
-    "id": 1,
-    "name": "Kaos Polos Anak",
-    "price": 45000,
-    "stock": 50,
-    "category": "Atasan"
-  }
-}
-```
 
 ## 🗂️ Struktur Proyek
 
@@ -73,42 +38,6 @@ LittleCloud/
 ├── .env.example               # Template konfigurasi
 ├── .gitignore
 └── package.json
-```
-
-## 🚀 Cara Menjalankan
-
-### 1. Clone repo
-```bash
-git clone https://github.com/claziu/LittleCloud.git
-cd LittleCloud
-```
-
-### 2. Install dependencies
-```bash
-npm install
-```
-
-### 3. Setup database
-```bash
-mysql -u root -p < database.sql
-```
-
-### 4. Buat file `.env`
-```bash
-cp .env.example .env
-```
-Edit `.env`:
-```
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=password_mysql_kamu
-DB_NAME=littlecloud_db
-PORT=3000
-```
-
-### 5. Jalankan server
-```bash
-npm run dev
 ```
 
 Buka browser: **http://localhost:3000**
